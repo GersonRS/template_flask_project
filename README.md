@@ -3,33 +3,48 @@ This script will start a new Flask project on the application factory model.
 
 ## Structure provided
 ~~~sh
-<project name>/
-+-- <project name>/
-|   +-- ext/ 
-|   |   +-- site/
-|   |   |   +-- __init__.py
-|   |   |   +-- main.py
-|   |   +-- __init__.py
-|   +-- static/
-|   |   +-- ccs/
-|   |   +-- img/
-|   |   +-- js/
-|   +-- templates/
-|   +-- __init__.py
-|   +-- app.py --> project entry point
-+-- tests/
-|   +-- conftest.py
-|   +-- test_app.py --> with 3 tests
-+-- LICENCE
-+-- Makefile
-+-- README.md
-+-- requirements.txt
-+-- requirements-dev.txt
-+-- setup.py
+.
+├── <project name>
+│   ├── app.py --> project entry point
+│   ├── ext
+│   │   ├── admin.py
+│   │   ├── api
+│   │   ├── auth
+│   │   ├── cli.py
+│   │   ├── config.py
+│   │   ├── db
+│   │   │   ├── commands.py
+│   │   │   ├── __init__.py
+│   │   │   └── models.py
+│   │   ├── __init__.py
+│   │   ├── site
+│   │   │   ├── __init__.py
+│   │   │   └── main.py
+│   │   └── toolbar.py
+│   ├── __init__.py
+│   ├── static
+│   │   ├── css
+│   │   ├── img
+│   │   └── js
+│   └── templates
+│       └── base.html
+├── LICENCE
+├── Makefile
+├── README.md
+├── requirements-dev.txt
+├── requirements.txt
+├── secrets.toml
+├── settings.toml
+├── setup.py
+└── tests
+    ├── conftest.py
+    └── test_app.py --> with 3 tests
 ~~~
 
+13 directories, 28 files
+
 ## How to use
-2. Run with the command:
+1. Run with the command:
 ~~~sh
 $ python3 startproject.py your_project_name --venv
 ~~~
