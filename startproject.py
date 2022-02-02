@@ -279,68 +279,68 @@ def drop_db():
         # /
         os.system(f"mkdir {self.proj}")
         # /proj
-        os.system(f"mkdir {self.proj}/{self.proj}")
+        os.system(f"mkdir {self.proj}\\{self.proj}")
         # /proj/templates
-        os.system(f"mkdir {self.proj}/{self.proj}/templates")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\templates")
         # /proj/static (css, img, js)
-        os.system(f"mkdir {self.proj}/{self.proj}/static")
-        os.system(f"mkdir {self.proj}/{self.proj}/static/css")
-        os.system(f"mkdir {self.proj}/{self.proj}/static/img")
-        os.system(f"mkdir {self.proj}/{self.proj}/static/js")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\static")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\static\\css")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\static\\img")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\static\\js")
         # /proj/ext
-        os.system(f"mkdir {self.proj}/{self.proj}/ext")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\ext")
         # /proj/ext/site
-        os.system(f"mkdir {self.proj}/{self.proj}/ext/site")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\ext\\site")
 
-        os.system(f"mkdir {self.proj}/{self.proj}/ext/db")
-        os.system(f"mkdir {self.proj}/{self.proj}/ext/api")
-        os.system(f"mkdir {self.proj}/{self.proj}/ext/auth")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\ext\\db")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\ext\\api")
+        os.system(f"mkdir {self.proj}\\{self.proj}\\ext\\auth")
         # /proj/tests
-        os.system(f"mkdir {self.proj}/tests")
+        os.system(f"mkdir {self.proj}\\tests")
 
     def write_files(self):
         print("2 - Writing texts content in files ...")
         # /
-        os.system(f"touch {self.proj}/LICENCE")
-        os.system(f"touch {self.proj}/README.md")
-        with open(f"{self.proj}/requirements.txt", "w") as fl:
+        os.system(f"type nul >> \"{self.proj}\\LICENCE\"")
+        os.system(f"type nul >> \"{self.proj}\\README.md\"")
+        with open(f"{self.proj}\\requirements.txt", "w") as fl:
             fl.write(self.requirements)
-        with open(f"{self.proj}/requirements-dev.txt", "w") as fl:
+        with open(f"{self.proj}\\requirements-dev.txt", "w") as fl:
             fl.write(self.requirements_dev)
-        with open(f"{self.proj}/Makefile", "w") as fl:
+        with open(f"{self.proj}\\Makefile", "w") as fl:
             fl.write(self.makefile)
-        with open(f"{self.proj}/setup.py", "w") as fl:
+        with open(f"{self.proj}\\setup.py", "w") as fl:
             fl.write(self.setup)
         # /proj
-        os.system(f"touch {self.proj}/{self.proj}/__init__.py")
-        with open(f"{self.proj}/{self.proj}/app.py", "w") as fl:
+        os.system(f"type nul >> \"{self.proj}\\{self.proj}\\__init__.py\"")
+        with open(f"{self.proj}\\{self.proj}\\app.py", "w") as fl:
             fl.write(self.app)
         # /test
-        with open(f"{self.proj}/tests/conftest.py", "w") as fl:
+        with open(f"{self.proj}\\tests\\conftest.py", "w") as fl:
             fl.write(self.conftest)
-        with open(f"{self.proj}/tests/test_app.py", "w") as fl:
+        with open(f"{self.proj}\\tests\\test_app.py", "w") as fl:
             fl.write(self.test_app)
         # /proj/ext
-        os.system(f"touch {self.proj}/{self.proj}/ext/__init__.py")
+        os.system(f"type nul >> \"{self.proj}\\{self.proj}\\ext\\__init__.py\"")
 
         # /proj/ext/site
-        with open(f"{self.proj}/{self.proj}/ext/site/main.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\site\\main.py", "w") as fl:
             fl.write(self.main_py_site)
-        with open(f"{self.proj}/{self.proj}/ext/site/__init__.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\site\\__init__.py", "w") as fl:
             fl.write(self.init_py_site)
 
         # /proj/ext/config
-        with open(f"{self.proj}/{self.proj}/ext/config.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\config.py", "w") as fl:
             fl.write(self.init_py_config)
 		# /proj/ext/admin
-        with open(f"{self.proj}/{self.proj}/ext/admin.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\admin.py", "w") as fl:
             fl.write(self.admin)
         # /proj/ext/db
-        with open(f"{self.proj}/{self.proj}/ext/db/__init__.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\db\\__init__.py", "w") as fl:
             fl.write(self.init_py_db)
-        with open(f"{self.proj}/{self.proj}/ext/db/commands.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\db\\commands.py", "w") as fl:
             fl.write(self.commands)
-        with open(f"{self.proj}/{self.proj}/ext/toolbar.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\toolbar.py", "w") as fl:
             fl.write('''from flask_debugtoolbar import DebugToolbarExtension
 
 
@@ -348,7 +348,7 @@ def init_app(app):
 	if app.debug:
 		DebugToolbarExtension(app)
             ''')
-        with open(f"{self.proj}/{self.proj}/ext/cli.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\cli.py", "w") as fl:
             fl.write(f'''import click
 
 from {self.proj}.ext.db.commands import create_db, drop_db
@@ -363,13 +363,13 @@ def init_app(app):
 	def listar_coisas():
 		# TODO: usar tabulate e listar coisas
 		click.echo("lista de coisas")''')
-        with open(f"{self.proj}/{self.proj}/ext/db/models.py", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\ext\\db\\models.py", "w") as fl:
             pass
-        with open(f"{self.proj}/{self.proj}/templates/base.html", "w") as fl:
+        with open(f"{self.proj}\\{self.proj}\\templates\\base.html", "w") as fl:
             fl.write(self.base_html)
-        with open(f"{self.proj}/settings.toml", "w") as fl:
+        with open(f"{self.proj}\\settings.toml", "w") as fl:
             fl.write(self.settings)
-        with open(f"{self.proj}/secrets.toml", "w") as fl:
+        with open(f"{self.proj}\\secrets.toml", "w") as fl:
             fl.write(f"""[default]
 SECRET_KEY = {str(os.urandom(16))[1:]}""")
 
@@ -377,8 +377,8 @@ SECRET_KEY = {str(os.urandom(16))[1:]}""")
         print("3 - Creating virtual env (.venv) ...")
         os.chdir(f"{self.proj}")
         os.system("python3 -m venv .venv")
-        os.system(".venv/bin/pip install -q --upgrade pip")
-        os.system(".venv/bin/pip install -q -r requirements.txt")
+        os.system(".venv\\bin\\pip install -q --upgrade pip")
+        os.system(".venv\\bin\\pip install -q -r requirements.txt")
 
 
 # Starting project #############################################################
